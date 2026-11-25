@@ -162,3 +162,7 @@ i.star{background:#dceaff}i.shadow{background:#69baff}i.lit{background:#ffd47b}i
 .si-credit{margin-top:12px!important}
 @media(max-width:900px){.si-grid{grid-template-columns:1fr}.si-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.si-range.wide{grid-template-columns:8.5em 1fr 3.2em}}
 .si-empty[hidden],#siCanvas[hidden]{display:none}
+/* 0.13 · Modo nocturno: filtro rojo global (multiplica por rojo puro → solo queda el canal R, sin azul ni verde) */
+body.red-mode::after,body.red-mode :fullscreen::after{content:'';position:fixed;inset:0;background:#f00;mix-blend-mode:multiply;pointer-events:none;z-index:2147483647}
+body.red-mode{--text:#ffb0b0;--muted:#e07a7a}body.red-mode #redMode{background:#5a1010;border-color:#a33}
+body.red-mode .leaflet-tile-pane,body.red-mode #auMap .leaflet-tile-pane{filter:invert(1) grayscale(1) brightness(.75) contrast(1.1)}
